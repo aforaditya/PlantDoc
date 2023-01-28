@@ -50,7 +50,8 @@ def mobile_device_detected_page():
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
     if request.method == 'POST':
-        image = request.files['image']
+        # image = request.form.get('image')
+        image = request.files['image']  
         filename = image.filename
         file_path = os.path.join('static/uploads', filename)
         image.save(file_path)
