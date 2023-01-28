@@ -72,6 +72,7 @@ def submit():
             'buy_link' : supplement_buy_link
         }
 
+        print(result)
         return jsonify(result)
 
 
