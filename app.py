@@ -1,5 +1,6 @@
 import os
 from flask import Flask, redirect, render_template, request, jsonify
+from flask_cors import CORS
 from PIL import Image
 import torchvision.transforms.functional as TF
 import CNN
@@ -28,6 +29,7 @@ def prediction(image_path):
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def home_page():
