@@ -66,7 +66,7 @@ def submit():
             'desc' : description , 
             'prevent' : prevent , 
             'image_url' : image_url , 
-            'pred' : pred,
+            'pred' : str(pred),
             'sname' : supplement_name , 
             'simage' : supplement_image_url , 
             'buy_link' : supplement_buy_link
