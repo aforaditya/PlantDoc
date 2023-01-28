@@ -1,5 +1,5 @@
 import os
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, jsonify
 from PIL import Image
 import torchvision.transforms.functional as TF
 import CNN
@@ -61,6 +61,20 @@ def submit():
         supplement_name = supplement_info['supplement name'][pred]
         supplement_image_url = supplement_info['supplement image'][pred]
         supplement_buy_link = supplement_info['buy link'][pred]
+        result = {
+            'title' : title ,
+            'desc' : description , 
+            'prevent' : prevent , 
+            'image_url' : image_url , 
+            'pred' : pred,
+            'sname' : supplement_name , 
+            'simage' : supplement_image_url , 
+            'buy_link' : supplement_buy_link
+        }
+
+        return jsonify(result)
+
+
         return render_template('submit.html' , title = title , desc = description , prevent = prevent , 
                                image_url = image_url , pred = pred ,sname = supplement_name , simage = supplement_image_url , buy_link = supplement_buy_link)
 
